@@ -15,8 +15,11 @@ int A(int m, int n) {
 }
 
 int main(void) {
-
-    printf("%d\n", A(2, 7));
+    int num1, num2;
+    printf("Digite dois numeros inteiros: ");
+    scanf("%d %d", &num1, &num2);
+    
+    printf("%d\n", A(num1, num2));
 
     return 0;
 }
