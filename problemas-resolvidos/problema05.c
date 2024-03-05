@@ -14,7 +14,7 @@ int temRaizesReais(float a, float b, float c) {
 }
 
 /* função que encontra as raízes reais */
-float* raizes(float a, float b, float c, float *raizes) {
+void raizes(float a, float b, float c, float *raizes) {
     float delta, r1, r2;
     
     delta = b*b - 4*a*c;
@@ -24,8 +24,6 @@ float* raizes(float a, float b, float c, float *raizes) {
 
     raizes[0] = r1;
     raizes[1] = r2;
-        
-    return raizes;
 }
 
 
@@ -38,7 +36,7 @@ int main(void) {
 
     if (temRaizesReais(A, B, C) == 1) {
         printf("\nA equacao possui raizes reais:\n");
-        raizes_funcao = raizes(A, B, C, raizes_funcao);
+        raizes(A, B, C, raizes_funcao);
 
         int i;
         for (i = 0; i < 2; i++) {

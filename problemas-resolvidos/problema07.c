@@ -1,16 +1,16 @@
-/* Programa que verifica se um número inteiro é primo */
+/* Programa que verifica recursivamente se um número inteiro é primo */
 #include <stdio.h>
 
-int isPrime(int n) {
-    int i;
-    int divisores = 0;
-    for (i = 1; i <= n; i++)
-        if (n%i==0) divisores++;
-    
-    if (divisores == 2)
-        return 1;       /* é primo */
-
-    return 0;           /* não é primo */
+int ePrimo(int num, int divisor) {
+    if (divisor == 1) {
+        return 1;   /* é primo */
+    } else {
+        if (num % divisor == 0) {
+            return 0; /* não é primo */
+        } else {
+            return ePrimo(num, divisor-1); // chamada recursiva de ePrimo(), para o próximo divisor
+        }
+    }
 }
 
 int main(void) {
@@ -18,6 +18,9 @@ int main(void) {
 
     printf("Insira um numero inteiro: ");
     scanf("%d", &num);
-    printf("%s\n", isPrime(num) ? "E primo" : "Nao e primo");
+    
+    // O primeiro teste será com i = n-1:
+    printf("%s\n", ePrimo(num, num - 1) ? "E primo" : "Nao e primo");
+    
     return 0;
 }
